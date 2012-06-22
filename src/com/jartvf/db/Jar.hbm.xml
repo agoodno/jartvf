@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.jartvf.db.Jar" table="jar">
+        <id name="id">
+            <generator class="sequence">
+                <param name="sequence">jar_id_seq</param>
+            </generator>
+        </id>
+        <property name="contents" type="java.util.List"/>
+        <property name="description"/>
+        <property name="platformName" column="platform_name"/>
+        <property name="downloadUrl" column="download_url"/>
+        <property name="directUrl" column="direct_url"/>
+        <property name="fileName" column="file_name"/>
+        <property name="version"/>
+        <property name="build"/>
+        <property name="size"/>
+        <property name="stamp" type="timestamp"/>
+    </class>
+</hibernate-mapping>

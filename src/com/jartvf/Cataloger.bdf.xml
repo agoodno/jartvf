@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+    
+    <bean id="testFile" class="java.io.FileInputStream">
+    	<constructor-arg index="0" type="java.lang.String" value="xerces-2.6.2.jar"/>
+    </bean>
+    
+    <bean id="dbCatalogue" class="com.jartvf.DbCatalogue"/>
+    
+    <bean id="testCatalogue" class="com.jartvf.TestCatalogue">
+    	<property name="inputStream" ref="testFile"/>
+    </bean>
+    
+    <bean id="cataloger" class="com.jartvf.Cataloger">
+    	<property name="catalog" ref="dbCatalogue"/>
+    </bean>
+    
+  <bean id="cataloger-ds" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+    <property name="driverClassName" value="org.hsqldb.jdbcDriver"/>
+    <property name="url" value="jdbc:hsqldb:hsql://localhost:9001"/>
+    <property name="username" value="sa"/>
+    <property name="password" value=""/>
+  </bean>
+
+  <bean id="db-session-factory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+    <property name="dataSource" ref="cataloger-ds"/>
+    <property name="mappingResources">
+      <list>
+        <value>jar.hbm.xml</value>
+        <value>class.hbm.xml</value>
+        <value>jarclass.hbm.xml</value>
+      </list>
+    </property>
+    <property name="hibernateProperties">
+      <value>
+        hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+      </value>
+    </property>
+  </bean>
+  
+</beans>

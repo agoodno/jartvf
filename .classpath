@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="ext/spring-beans.jar"/>
+	<classpathentry kind="lib" path="ext/spring-core.jar"/>
+	<classpathentry kind="lib" path="ext/commons-logging.jar"/>
+	<classpathentry kind="lib" path="ext/antlr-2.7.6.jar"/>
+	<classpathentry kind="lib" path="ext/asm-2.2.2.jar"/>
+	<classpathentry kind="lib" path="ext/cglib-nodep-2.1_3.jar"/>
+	<classpathentry kind="lib" path="ext/commons-collections.jar"/>
+	<classpathentry kind="lib" path="ext/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="ext/hibernate3.jar"/>
+	<classpathentry kind="lib" path="ext/jta.jar"/>
+	<classpathentry kind="lib" path="ext/spring-hibernate3.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>
